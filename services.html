@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arcadia - Nos Services</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+   <!-- En-tête -->
+   <header>
+    <div class="logo-container">
+        <a href="index.html">
+            <img src="images/logo.jpg" alt="Logo Zoo Arcadia" class="logo">
+        </a>
+    </div>
+    <nav>
+        <ul class="menu">
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="habitats.html">Habitats & Animaux</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li class="dropdown">
+                <button id="login-button">Connexion ▼</button>
+                <ul id="dropdown-menu" class="dropdown-menu">
+                    <li><a href="#" class="login-option" data-role="veterinaire">Vétérinaire</a></li>
+                    <li><a href="#" class="login-option" data-role="employe">Employé</a></li>
+                    <li><a href="#" class="login-option" data-role="administrateur">Administrateur</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+
+    <!-- Modale de connexion -->
+    <div id="login-modal" class="modal hidden">
+        <div class="modal-content">
+            <span id="close-modal" class="close">&times;</span>
+            <h2 id="modal-title">Connexion</h2>
+            <form id="login-form" action="auth.php" method="POST">
+                <input type="hidden" id="role" name="role">
+                <label for="username">Identifiant :</label>
+                <input type="text" id="username" name="username" required>
+                <label for="password">Mot de passe :</label>
+                <input type="password" id="password" name="password" placeholder="Entrez votre mot de passe" required>
+                <p id="error-message" class="error hidden">Identifiant ou mot de passe incorrect</p>
+                <button type="submit">Se connecter</button>
+            </form>
+        </div>
+    </div>
+
+        <!-- Section Services -->     
+        <section id="services" class="section">
+            <h2>Nos services</h2>
+            <div class="service-container">
+                <div class="service-card">
+                    <img src="images/restaurant.webp" alt="Restauration">
+                    <h3>Restauration</h3>
+                    <p>Profitez de plats locaux et biologiques dans notre restaurant.</p>
+                </div>
+                <div class="service-card">
+                    <img src="images/visite.webp" alt="Visite guidée">
+                    <h3>Visite guidée</h3>
+                    <p>Explorez le zoo accompagné de nos soigneurs passionnés.</p>
+                </div>
+                <div class="service-card large-card">
+                    <img src="images/train.webp" alt="Petit train">
+                    <h3>Petit train</h3>
+                    <p>Découvrez le parc à bord de notre train écologique.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Contact -->
+        <section id="contact" aria-labelledby="contact-title">
+            <h2 id="contact-title">Contact</h2>
+            <p>Email : contact@zooarcadia.fr</p>
+            <p>Téléphone : 02 99 99 99 99</p>
+            <p>Horaires : Ouvert tous les jours de 9h à 18h</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Zoo Arcadia. Tous droits réservés.</p>
+    </footer>
+
+    <script src="script.js" defer></script>
+</body>
+</html>

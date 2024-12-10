@@ -1,0 +1,742 @@
+/* Variables de couleur pour une gestion facile */
+:root {
+    --vert-foret: #2E7D32;
+    --vert-clair: #81C784;
+    --brun-terre: #5D4037;
+    --beige-clair: #F5F5DC;
+    --fond-clair: #E8F5E9;
+    --texte-sombre: #212121;
+    --texte-doux: #555;
+}
+
+/* Styles globaux */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    background-color: var(--fond-clair);
+    color: var(--texte-sombre);
+}
+
+h1, h2, h3 {
+    color: var(--vert-foret);
+    text-align: center;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--vert-clair);
+}
+
+/* En-tête */
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; 
+    flex-wrap: wrap; 
+    background-color: var(--vert-foret);
+    padding: 1em 2em;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.logo-container img {
+    height: 40px; 
+    max-width: 100%; 
+    object-fit: contain; 
+}
+
+/* Menu : Flexibilité et organisation */
+header nav ul {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1.5em;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    flex-wrap: wrap;
+}
+
+/* Bouton Connexion */
+#login-button {
+    background-color: #FFFFFF;
+    color: var(--vert-foret);
+    border: none;
+    padding: 0.5em 1em;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+#login-button:hover {
+    background-color: var(--vert-clair);
+    color: #FFFFFF;
+}
+
+/* Image du Zoo (Présentation) */
+.presentation-media img {
+    width: 100%; /* S'adapte toujours à la largeur du conteneur */
+    height: auto; /* Maintient les proportions */
+    display: block;
+    border-radius: 8px;
+}
+
+/* Responsivité pour petits écrans */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column; /* Le menu passe sous le logo */
+        align-items: center;
+    }
+
+    .logo-container img {
+        height: 30px; /* Réduction pour petits écrans */
+    }
+
+    header nav ul {
+        flex-direction: column; /* Le menu devient vertical */
+        align-items: center;
+        gap: 1em;
+    }
+
+    #login-button {
+        width: 100%; /* Le bouton prend toute la largeur */
+        text-align: center;
+        margin-top: 1em;
+    }
+
+    .presentation-media img {
+        max-width: 100%; /* S'adapte mieux aux écrans étroits */
+        height: auto;
+    }
+}
+
+/* Très petits écrans (par ex. téléphones) */
+@media (max-width: 480px) {
+    header {
+        padding: 1em; /* Réduction du padding */
+    }
+
+    #login-button {
+        font-size: 0.9em; /* Réduction de la taille du texte */
+        padding: 0.4em 0.8em;
+    }
+
+    .presentation-media img {
+        border-radius: 5px; /* Légère adaptation esthétique */
+    }
+}
+
+/* Menu déroulant */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.3s, transform 0.3s;
+}
+
+.dropdown.open .dropdown-menu {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.dropdown-menu li {
+    padding: 0.8em 1em;
+}
+
+.dropdown-menu li a {
+    color: var(--texte-sombre);
+    display: block;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.dropdown-menu li a:hover {
+    background-color: var(--vert-clair);
+    color: #FFFFFF;
+}
+
+/* Modale */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal.active {
+    display: flex;
+}
+
+.modal-content {
+    background: #fff;
+    padding: 2em;
+    border-radius: 8px;
+    width: 300px;
+    max-width: 90%;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.modal-content h2 {
+    margin-bottom: 1em;
+    color: var(--vert-foret);
+}
+
+.modal-content label {
+    display: block;
+    margin-bottom: 0.5em;
+    font-weight: bold;
+    color: var(--texte-doux);
+}
+
+.modal-content input {
+    width: 100%;
+    padding: 0.8em;
+    margin-bottom: 1em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.modal-content button {
+    background-color: var(--vert-foret);
+    color: #fff;
+    padding: 0.8em 1.5em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+.modal-content button:hover {
+    background-color: var(--vert-clair);
+}
+
+/* Présentation */
+#presentation {
+    text-align: center;
+    padding: 2em 1em;
+    color: black;
+}
+
+#presentation h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1em;
+}
+
+#presentation p {
+    font-size: 1.2rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Section des habitats */
+#habitats {
+    padding: 2em;
+    background-color: var(--fond-clair);
+    text-align: center;
+}
+
+#habitats h2 {
+    font-size: 2.5rem;
+    color: var(--vert-foret);
+    margin-bottom: 1em;
+}
+
+/* Conteneur des cartes */
+.habitat-container {
+    display: flex;
+    gap: 2em;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap; /* Pour gérer les petits écrans */
+}
+
+/* Cartes individuelles */
+.habitat-card {
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 300px; /* Taille fixe pour un alignement propre */
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.habitat-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Images des cartes */
+.habitat-card img {
+    width: 100%; /* Image occupe la largeur de la carte */
+    height: auto; /* Garde les proportions */
+    display: block;
+}
+
+/* Titres des cartes */
+.habitat-card h3 {
+    margin: 0.5em 0;
+    font-size: 1.5rem;
+    color: var(--texte-sombre);
+    font-weight: bold;
+}
+
+/* Description des cartes */
+.habitat-card p {
+    margin: 0 1em 1em;
+    font-size: 1rem;
+    color: var(--texte-doux);
+    line-height: 1.4;
+}
+
+/* Responsive Design pour petits écrans */
+@media (max-width: 768px) {
+    .habitat-container {
+        flex-direction: column; /* Les cartes s'empilent sur petits écrans */
+    }
+
+    .habitat-card {
+        width: 100%; /* Les cartes prennent toute la largeur */
+        max-width: 400px;
+        margin: 0 auto; /* Centrer les cartes */
+    }
+}
+
+/* Section des animaux */
+#animaux {
+    padding: 2em;
+    background-color: var(--fond-clair);
+    text-align: center;
+}
+
+#animaux h2 {
+    color: var(--vert-foret);
+    font-size: 2.5rem;
+    margin-bottom: 1em;
+    font-weight: bold;
+
+}
+
+/* Conteneur des cartes */
+.animal-container {
+    display: grid; /* Utilisation de la grille */
+    grid-template-columns: repeat(3, 1fr); /* Trois colonnes */
+    gap: 2em; /* Espacement entre les cartes */
+    justify-content: center;
+}
+
+/* Cartes individuelles */
+.animal-card {
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.animal-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Images des cartes */
+.animal-card img {
+    width: 100%; /* Image occupe toute la largeur de la carte */
+    height: auto; /* Garde les proportions */
+    border-bottom: 2px solid var(--vert-clair);
+}
+
+/* Titres des cartes */
+.animal-card h3 {
+    margin: 0.5em 0;
+    font-size: 1.5rem;
+    color: var(--texte-sombre);
+    font-weight: bold;
+}
+
+/* Description des cartes */
+.animal-card p {
+    margin: 0 1em 1em;
+    font-size: 1rem;
+    color: var(--texte-doux);
+    line-height: 1.4;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .animal-container {
+        grid-template-columns: repeat(2, 1fr); /* Deux colonnes sur tablettes */
+        gap: 1.5em;
+    }
+}
+
+@media (max-width: 480px) {
+    .animal-container {
+        grid-template-columns: 1fr; /* Une seule colonne sur mobiles */
+    }
+}
+
+/* Section principale */
+#habitats-animaux {
+    padding: 2em;
+    background-color: var(--fond-clair);
+}
+
+#habitats-animaux h2 {
+    text-align: center;
+    font-size: 2rem;
+    color: var(--vert-foret);
+    margin-bottom: 1.5em;
+}
+
+/* Habitat Section */
+.habitat-section {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2em;
+    gap: 1.5em;
+    background: #fff;
+    border-radius: 10px;
+    padding: 1.5em;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Image de l'habitat */
+.habitat-image {
+    width: 40%;
+    height: auto;
+    border-radius: 10px;
+}
+
+/* Informations sur l'habitat */
+.habitat-info {
+    flex: 1;
+    text-align: center; /* Centre tout le texte */
+}
+
+.habitat-info h3 {
+    color: var(--vert-foret);
+    font-size: 1.8rem;
+    margin-bottom: 0.5em;
+}
+
+.habitat-info p {
+    font-size: 1rem;
+    color: var(--texte-doux);
+    margin-bottom: 1em;
+    max-width: 500px; /* Limite la largeur du texte */
+    margin-left: auto;
+    margin-right: auto; /* Centre le texte */
+}
+
+/* Liste des animaux */
+.animal-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column; /* Organise les animaux en colonne */
+    gap: 1em; /* Espace entre chaque animal */
+    align-items: center; /* Centre chaque élément horizontalement */
+}
+
+
+.animal-list li {
+    text-align: center; /* Centre le contenu (image + texte) */
+}
+
+.animal-list li img {
+    width: 100px;
+    height: 100px;
+    border-radius: 5px;
+    margin-right: 1em;
+    display: flex;
+    align-items: center;
+}
+
+.animal-list li:last-child {
+    margin-bottom: 0;
+}
+
+/* Responsivité */
+@media (max-width: 768px) {
+    .habitat-section {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .habitat-image {
+        width: 100%;
+    }
+
+    .animal-list li {
+        justify-content: center;
+    }
+}
+
+
+/* Section des services */
+#services {
+    padding: 2em 1em;
+    background-color: var(--fond-clair);
+    text-align: center;
+}
+
+#services h2 {
+    color: var(--vert-foret);
+    font-size: 2.5rem;
+    margin-bottom: 1em;
+    font-weight: bold;
+}
+
+/* Conteneur des services */
+.service-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Deux colonnes pour les deux premières lignes */
+    gap: 2em;
+    justify-content: center;
+}
+
+.service-card {
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    padding: 1em;
+}
+
+.service-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Images des services */
+.service-card img {
+    width: 100%; /* Remplit la largeur de la carte */
+    height: auto; /* Garde les proportions */
+    border-bottom: 2px solid var(--vert-clair);
+    border-radius: 10px;
+}
+
+/* Titres des services */
+.service-card h3 {
+    margin: 0.5em 0;
+    font-size: 1.5rem;
+    color: var(--texte-sombre);
+    font-weight: bold;
+}
+
+/* Descriptions des services */
+.service-card p {
+    margin: 0 1em;
+    font-size: 1rem;
+    color: var(--texte-doux);
+    line-height: 1.4;
+}
+
+/* Service en bas, occupant deux colonnes */
+.large-card {
+    grid-column: span 2;
+    margin-top: 1em;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .service-container {
+        grid-template-columns: 1fr; /* Une colonne pour les petits écrans */
+    }
+    .large-card {
+        grid-column: span 1; /* Réduction à une seule colonne sur mobile */
+    }
+}
+
+/* Section des avis */
+#avis {
+    padding: 2em 1em;
+    text-align: center;
+    background-color: var(--fond-clair);
+}
+
+#avis h2 {
+    font-size: 2rem;
+    margin-bottom: 1em;
+    color: var(--vert-foret);
+}
+
+#avis-liste {
+    text-align: left;
+    margin: 0 auto 2em;
+    max-width: 600px;
+    padding-left: 1em; /* Décalage à droite pour la liste */
+}
+
+#avis-liste li {
+    font-size: 1rem;
+    color: var(--texte-doux);
+    margin-bottom: 0.5em;
+}
+
+/* Formulaire d'avis */
+#avis-form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Aligne les champs à gauche dans leur conteneur */
+    margin: 0 auto;
+    max-width: 600px;
+    padding-left: 2em; /* Décalage global à droite */
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1em;
+}
+
+label {
+    font-weight: bold;
+    margin-bottom: 0.5em;
+    color: var(--texte-sombre);
+}
+
+input, textarea {
+    width: 100%;
+    padding: 0.8em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+textarea {
+    resize: vertical; /* Permet à l'utilisateur de redimensionner verticalement */
+}
+
+button {
+    background-color: var(--vert-foret);
+    color: #fff;
+    padding: 0.8em 1.5em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    align-self: flex-start; /* Bouton aligné à gauche */
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: var(--vert-clair);
+}
+
+/* Sections communes */
+.section {
+    padding: 2em 1em;
+    margin: 2em 0;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.section h2 {
+    margin-bottom: 1em;
+    font-size: 2rem;
+}
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5em;
+    justify-content: center;
+}
+
+.card {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    padding: 1em;
+    transition: transform 0.3s ease;
+    flex: 1 1 calc(33.333% - 1em);
+    max-width: 300px;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+/* Contact */
+#contact {
+    background-color: var(--vert-clair);
+    color: #fff;
+    text-align: center;
+    padding: 2em;
+    border-radius: 8px;
+    margin-top: 2em;
+}
+
+#contact h2 {
+    font-size: 2rem;
+    margin-bottom: 1em;
+}
+
+#contact p {
+    font-size: 1rem;
+}
+
+/* Footer */
+footer {
+    background: var(--vert-foret);
+    color: #fff;
+    text-align: center;
+    padding: 1em 0;
+    font-size: 0.9rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .card-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card {
+        flex: 1 1 100%;
+        max-width: 400px;
+    }
+}

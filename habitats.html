@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Découvrez les habitats naturels recréés au Zoo Arcadia : Jungle, Marais et Savane, où vivent nos fascinants animaux.">
+    <meta name="keywords" content="habitats, zoo, jungle, marais, savane, animaux, Arcadia">
+    <title>Habitats & Animaux - Zoo Arcadia</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- En-tête -->
+    <header>
+        <div class="logo-container">
+            <a href="index.html">
+                <img src="images/logo.jpg" alt="Logo Zoo Arcadia" class="logo">
+            </a>
+        </div>
+        <nav>
+            <ul class="menu">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="habitats.html">Habitats & Animaux</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li class="dropdown">
+                    <button id="login-button">Connexion ▼</button>
+                    <ul id="dropdown-menu" class="dropdown-menu">
+                        <li><a href="#" class="login-option" data-role="veterinaire">Vétérinaire</a></li>
+                        <li><a href="#" class="login-option" data-role="employe">Employé</a></li>
+                        <li><a href="#" class="login-option" data-role="administrateur">Administrateur</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    
+
+    <!-- Modale de connexion -->
+    <div id="login-modal" class="modal hidden">
+        <div class="modal-content">
+            <span id="close-modal" class="close">&times;</span>
+            <h2 id="modal-title">Connexion</h2>
+            <form id="login-form" action="auth.php" method="POST">
+                <input type="hidden" id="role" name="role">
+                <label for="username">Identifiant :</label>
+                <input type="text" id="username" name="username" required>
+                <label for="password">Mot de passe :</label>
+                <input type="password" id="password" name="password" placeholder="Entrez votre mot de passe" required>
+                <p id="error-message" class="error hidden">Identifiant ou mot de passe incorrect</p>
+                <button type="submit">Se connecter</button>
+            </form>
+        </div>
+    </div>
+
+    <section id="habitats-animaux">
+        <h2>Nos habitats et animaux</h2>
+    
+        <!-- Habitat 1 -->
+        <div class="habitat-section">
+            <img src="images/jungle.webp" alt="La Jungle" class="habitat-image">
+            <div class="habitat-info">
+                <h3>La Jungle</h3>
+                <p>Une oasis luxuriante où vivent de nombreuses espèces fascinantes.</p>
+                <ul class="animal-list">
+                    <li>
+                        <img src="images/singe.webp" alt="Singe Capucin">
+                        Singe Capucin
+                    </li>
+                    <li>
+                        <img src="images/tigre.webp" alt="Tigre du Bengale">
+                        Tigre du Bengale
+                    </li>
+                    <li>
+                        <img src="images/serpent.webp" alt="Anaconda">
+                        Anaconda
+                    </li>
+                </ul>
+            </div>
+        </div>
+    
+        <!-- Habitat 2 -->
+        <div class="habitat-section">
+            <img src="images/savane.webp" alt="La Savane" class="habitat-image">
+            <div class="habitat-info">
+                <h3>La Savane</h3>
+                <p>Une vaste plaine où se promènent lions, girafes et zèbres.</p>
+                <ul class="animal-list">
+                    <li>
+                        <img src="images/lion.webp" alt="Lion">
+                        Lion
+                    </li>
+                    <li>
+                        <img src="images/girafe.webp" alt="Girafe">
+                        Girafe
+                    </li>
+                    <li>
+                        <img src="images/zebre.webp" alt="Zèbre">
+                        Zèbre
+                    </li>
+                </ul>
+            </div>
+        </div>
+    
+        <!-- Habitat 3 -->
+        <div class="habitat-section">
+            <img src="images/marais.webp" alt="Le Marais" class="habitat-image">
+            <div class="habitat-info">
+                <h3>Le Marais</h3>
+                <p>Un habitat humide abritant crocodiles, flamants roses et tortues.</p>
+                <ul class="animal-list">
+                    <li>
+                        <img src="images/crocodile.webp" alt="Crocodile">
+                        Crocodile
+                    </li>
+                    <li>
+                        <img src="images/tortue.webp" alt="Tortue">
+                        Tortue
+                    </li>
+                    <li>
+                        <img src="images/flamant.webp" alt="Flamant rose">
+                        Flamant rose
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Contact -->
+        <section id="contact" aria-labelledby="contact-title">
+            <h2 id="contact-title">Contact</h2>
+            <p>Email : contact@zooarcadia.fr</p>
+            <p>Téléphone : 02 99 99 99 99</p>
+            <p>Horaires : Ouvert tous les jours de 9h à 18h</p>
+        </section>
+    </main>
+
+    <!-- Pied de page -->
+    <footer>
+        <p>&copy; 2024 Zoo Arcadia. Tous droits réservés.</p>
+    </footer>
+
+    <script src="script.js" defer></script>
+</body>
+</html>
+

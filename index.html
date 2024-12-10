@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Zoo Arcadia, un zoo éco-responsable situé en Bretagne près de la forêt de Brocéliande, avec des habitats naturels et des expériences immersives.">
+    <meta name="keywords" content="zoo, Bretagne, éco-responsable, Brocéliande, Arcadia, animaux, jungle, savane, marais, services">
+    <meta name="author" content="Zoo Arcadia">
+    <meta property="og:title" content="Zoo Arcadia - Zoo Éco Responsable">
+    <meta property="og:description" content="Un zoo éco-responsable situé en Bretagne, proche de la forêt de Brocéliande, proposant des habitats naturels et des expériences immersives.">
+    <meta property="og:image" content="images/zoo-preview.webp">
+    <meta property="og:url" content="https://www.zooarcadia.fr">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <title>Arcadia - Zoo Éco Responsable</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- En-tête -->
+    <header>
+        <div class="logo-container">
+            <a href="index.html">
+                <img src="images/logo.jpg" alt="Logo Zoo Arcadia" class="logo">
+            </a>
+        </div>
+        <nav>
+            <ul class="menu">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="habitats.html">Habitats & Animaux</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li class="dropdown">
+                    <button id="login-button">Connexion ▼</button>
+                    <ul id="dropdown-menu" class="dropdown-menu">
+                        <li><a href="#" class="login-option" data-role="veterinaire">Vétérinaire</a></li>
+                        <li><a href="#" class="login-option" data-role="employe">Employé</a></li>
+                        <li><a href="#" class="login-option" data-role="administrateur">Administrateur</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    
+
+    <!-- Modale de connexion -->
+    <div id="login-modal" class="modal hidden">
+        <div class="modal-content">
+            <span id="close-modal" class="close">&times;</span>
+            <h2 id="modal-title">Connexion</h2>
+            <form id="login-form" action="auth.php" method="POST">
+                <input type="hidden" id="role" name="role">
+                <label for="username">Identifiant :</label>
+                <input type="text" id="username" name="username" required>
+                <label for="password">Mot de passe :</label>
+                <input type="password" id="password" name="password" placeholder="Entrez votre mot de passe" required>
+                <p id="error-message" class="error hidden">Identifiant ou mot de passe incorrect</p>
+                <button type="submit">Se connecter</button>
+            </form>
+        </div>
+    </div>
+    
+    <!-- Contenu principal -->
+    <main>
+        <!-- Présentation générale -->
+        <section id="presentation" aria-labelledby="presentation-title">
+            <div class="presentation-container">
+                <div class="presentation-text">
+                    <h2 id="presentation-title">Bienvenue au Zoo Arcadia</h2>
+                    <p>
+                        Situé à proximité de la forêt de Brocéliande en Bretagne, Arcadia est un zoo éco-responsable. Nous 
+                        accueillons des espèces fascinantes dans des habitats recréés pour leur bien-être.
+                    </p>
+                </div>
+                <div class="presentation-media">
+                    <img src="images/zoo.webp" alt="Aperçu du zoo">
+                </div>
+            </div>
+        </section>
+        
+        <!-- Section Habitats -->
+        <section id="habitats" class="section">
+            <h2>Nos habitats</h2>
+            <div class="habitat-container">
+                <div class="habitat-card">
+                    <img src="images/jungle.webp" alt="La Jungle">
+                    <h3>La Jungle</h3>
+                    <p>Une oasis luxuriante où vivent de nombreuses espèces fascinantes.</p>
+                </div>
+                <div class="habitat-card">
+                    <img src="images/savane.webp" alt="La Savane">
+                    <h3>La Savane</h3>
+                    <p>Une vaste plaine où se promènent lions, girafes et zèbres.</p>
+                </div>
+                <div class="habitat-card">
+                    <img src="images/marais.webp" alt="Le Marais">
+                    <h3>Le Marais</h3>
+                    <p>Un habitat humide abritant crocodiles, flamants roses et tortues.</p>
+                </div>
+            </div>
+        </section>
+              
+        <!-- Section Animaux -->
+        <section id="animaux" class="section">
+            <h2>Nos animaux</h2>
+            <div class="animal-container">
+                <div class="animal-card">
+                    <img src="images/singe.webp" alt="Singe capucin">
+                    <h3>Singe capucin</h3>
+                    <p>Un petit primate vif et intelligent vivant dans la jungle.</p>
+                </div>
+                <div class="animal-card">
+                    <img src="images/tigre.webp" alt="Tigre du Bengale">
+                    <h3>Tigre du Bengale</h3>
+                    <p>Un prédateur majestueux, emblème de la jungle.</p>
+                </div>
+                <div class="animal-card">
+                    <img src="images/serpent.webp" alt="Anaconda">
+                    <h3>Anaconda</h3>
+                    <p>Le roi des serpents, impressionnant et discret.</p>
+                </div>
+                <div class="animal-card">
+                    <img src="images/lion.webp" alt="Lion">
+                    <h3>Lion</h3>
+                    <p>****</p>
+                </div>
+                <div class="animal-card">
+                    <img src="images/girafe.webp" alt="Girafe">
+                    <h3>Girafe</h3>
+                    <p>****</p>
+                </div>
+                <div class="animal-card">
+                    <img src="images/zebre.webp" alt="Zèbre">
+                    <h3>Zèbre</h3>
+                    <p>****</p>
+                </div>
+                <div class="animal-card">
+                    <img src="images/crocodile.webp" alt="Crocodile">
+                    <h3>Crocodile</h3>
+                    <p>****</p>
+                </div>
+                <div class="animal-card">
+                    <img src="images/tortue.webp" alt="Tortue">
+                    <h3>Tortue</h3>
+                    <p>****</p>
+                </div>
+                <div class="animal-card">
+                    <img src="images/flamant.webp" alt="Flamant rose">
+                    <h3>Flamant rose</h3>
+                    <p>****</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Services -->     
+        <section id="services" class="section">
+            <h2>Nos services</h2>
+            <div class="service-container">
+                <div class="service-card">
+                    <img src="images/restaurant.webp" alt="Restauration">
+                    <h3>Restauration</h3>
+                    <p>Profitez de plats locaux et biologiques dans notre restaurant.</p>
+                </div>
+                <div class="service-card">
+                    <img src="images/visite.webp" alt="Visite guidée">
+                    <h3>Visite guidée</h3>
+                    <p>Explorez le zoo accompagné de nos soigneurs passionnés.</p>
+                </div>
+                <div class="service-card large-card">
+                    <img src="images/train.webp" alt="Petit train">
+                    <h3>Petit train</h3>
+                    <p>Découvrez le parc à bord de notre train écologique.</p>
+                </div>
+            </div>
+        </section>        
+        
+        <!-- Section Avis -->
+        <section id="avis" class="section">
+            <h2>Avis des visiteurs</h2>
+            <ul id="avis-liste">
+                <li>Super expérience ! – Marie</li>
+                <li>Un endroit magnifique et respectueux de la nature. – Paul</li>
+            </ul>
+            <form id="avis-form">
+                <div class="form-group">
+                    <label for="avis-nom">Votre nom :</label>
+                    <input type="text" id="avis-nom" placeholder="Entrez votre nom" required>
+                </div>
+                <div class="form-group">
+                    <label for="avis-message">Votre avis :</label>
+                    <textarea id="avis-message" placeholder="Votre avis" required></textarea>
+                </div>
+                <button type="submit">Envoyer</button>
+            </form>
+        </section>
+
+        <!-- Section Contact -->
+        <section id="contact" aria-labelledby="contact-title">
+            <h2 id="contact-title">Contact</h2>
+            <p>Email : contact@zooarcadia.fr</p>
+            <p>Téléphone : 02 99 99 99 99</p>
+            <p>Horaires : Ouvert tous les jours de 9h à 18h</p>
+        </section>
+    </main>
+
+    <!-- Pied de page -->
+    <footer>
+        <p>&copy; 2024 Zoo Arcadia. Tous droits réservés.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
