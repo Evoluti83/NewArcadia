@@ -62,15 +62,15 @@
                 <h3>La Jungle</h3>
                 <p>Une oasis luxuriante où vivent de nombreuses espèces fascinantes.</p>
                 <ul class="animal-list">
-                    <li>
+                    <li class="animal" data-name="Singe Capucin" data-firstname="Charlie" data-species="Primates" data-habitat="Jungles" data-image="images/singe.webp">
                         <img src="images/singe.webp" alt="Singe Capucin">
                         Singe Capucin
                     </li>
-                    <li>
+                    <li class="animal" data-name="Tigre du Bengale" data-firstname="Raja" data-species="Félin" data-habitat="Jungles" data-image="images/tigre.webp">
                         <img src="images/tigre.webp" alt="Tigre du Bengale">
                         Tigre du Bengale
                     </li>
-                    <li>
+                    <li class="animal" data-name="Anaconda" data-firstname="Kaa" data-species="Serpent" data-habitat="Jungles" data-image="images/serpent.webp">
                         <img src="images/serpent.webp" alt="Anaconda">
                         Anaconda
                     </li>
@@ -85,15 +85,15 @@
                 <h3>La Savane</h3>
                 <p>Une vaste plaine où se promènent lions, girafes et zèbres.</p>
                 <ul class="animal-list">
-                    <li>
+                    <li class="animal" data-name="Lion" data-firstname="Simba" data-species="Panthera Léo" data-habitat="Savane" data-image="images/lion.webp">
                         <img src="images/lion.webp" alt="Lion">
                         Lion
                     </li>
-                    <li>
+                    <li class="animal" data-name="Girafe" data-firstname="Yellow" data-species="Giraffa" data-habitat="Savane" data-image="images/girafe.webp">
                         <img src="images/girafe.webp" alt="Girafe">
                         Girafe
                     </li>
-                    <li>
+                    <li class="animal" data-name="Zèbre" data-firstname="Zébrul" data-species="Equus Quagga" data-habitat="Savane" data-image="images/zebre.webp">
                         <img src="images/zebre.webp" alt="Zèbre">
                         Zèbre
                     </li>
@@ -108,15 +108,15 @@
                 <h3>Le Marais</h3>
                 <p>Un habitat humide abritant crocodiles, flamants roses et tortues.</p>
                 <ul class="animal-list">
-                    <li>
+                    <li class="animal" data-name="Crocodile" data-firstname="Crocs" data-species="Crocodylus Niloticus" data-habitat="Marais" data-image="images/crocodile.webp">
                         <img src="images/crocodile.webp" alt="Crocodile">
                         Crocodile
                     </li>
-                    <li>
+                    <li class="animal" data-name="Tortue" data-firstname="Léonardo" data-species="Chelonioidea" data-habitat="Marais" data-image="images/tortue.webp">
                         <img src="images/tortue.webp" alt="Tortue">
                         Tortue
                     </li>
-                    <li>
+                    <li class="animal" data-name="Flamant Rose" data-firstname="Rosa" data-species="Phoenicopterus" data-habitat="Marais" data-image="images/flamant.webp">
                         <img src="images/flamant.webp" alt="Flamant rose">
                         Flamant rose
                     </li>
@@ -138,6 +138,19 @@
     <footer>
         <p>&copy; 2024 Zoo Arcadia. Tous droits réservés.</p>
     </footer>
+
+    <div id="animal-modal" class="modal hidden">
+        <div class="modal-content">
+            <span id="close-animal-modal" class="close">&times;</span>
+            <h3 id="animal-name"></h3>
+            <img id="animal-image" src="" alt="">
+            <p><strong>Prénom:</strong> <span id="animal-firstname"></span></p>
+            <p><strong>Espèce:</strong> <span id="animal-species"></span></p>
+            <p><strong>Habitat:</strong> <span id="animal-habitat"></span></p>
+        </div>
+    </div>
+    
+    
 
     <script src="script.js" defer></script>
 </body>

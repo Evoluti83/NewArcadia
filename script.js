@@ -100,41 +100,58 @@ function initLoginModal() {
 }
 
 /** === MODAL DES ANIMAUX === */
-function initAnimalModal() {
-    const animals = document.querySelectorAll('.animal');
-    const modal = document.getElementById('animal-modal');
-    const closeModal = document.getElementById('close-modal');
-    const modalName = document.getElementById('animal-name');
+document.addEventListener('DOMContentLoaded', () => {
+    const animals = document.querySelectorAll('.animal'); // Tous les animaux cliquables
+    const modal = document.getElementById('animal-modal'); // Le modal principal
+    const closeModal = document.getElementById('close-animal-modal'); // La croix de fermeture
+
+    // Éléments du modal
     const modalImage = document.getElementById('animal-image');
+    const modalName = document.getElementById('animal-name');
+    const modalFirstName = document.getElementById('animal-firstname');
     const modalSpecies = document.getElementById('animal-species');
     const modalHabitat = document.getElementById('animal-habitat');
 
-    if (!modal || !closeModal || !modalName || !modalImage || !modalSpecies || !modalHabitat) {
-        console.error('Modal des animaux : Des éléments requis sont introuvables.');
+    // Vérifiez que les éléments requis sont présents
+    if (!modal || !closeModal || !modalImage || !modalName || !modalFirstName || !modalSpecies || !modalHabitat) {
+        console.error('Un ou plusieurs éléments requis pour le modal animal sont manquants.');
         return;
     }
 
+    // Ouvrir le modal lorsqu'un animal est cliqué
     animals.forEach(animal => {
         animal.addEventListener('click', () => {
-            // Mise à jour des informations du modal
-            modalName.textContent = animal.dataset.name || 'Nom inconnu';
-            modalImage.src = animal.dataset.image || 'placeholder.jpg';
-            modalImage.alt = animal.dataset.name || 'Animal';
-            modalSpecies.textContent = animal.dataset.species || 'Espèce inconnue';
-            modalHabitat.textContent = animal.dataset.habitat || 'Habitat inconnu';
+            const name = animal.dataset.name;
+            const firstname = animal.dataset.firstname;
+            const species = animal.dataset.species;
+            const habitat = animal.dataset.habitat;
+            const image = animal.dataset.image;
 
-            // Affichage du modal
-            modal.classList.add('active');
+            // Mettre à jour les contenus du modal
+            modalName.textContent = name;
+            modalFirstName.textContent = firstname;
+            modalSpecies.textContent = species;
+            modalHabitat.textContent = habitat;
+            modalImage.src = image;
+            modalImage.alt = name;
+
+            // Afficher le modal
+            modal.classList.remove('hidden');
         });
     });
 
+    // Fermer le modal via la croix
     closeModal.addEventListener('click', () => {
-        modal.classList.remove('active');
+        modal.classList.add('hidden');
     });
 
+    // Fermer le modal en cliquant à l'extérieur
     window.addEventListener('click', (e) => {
         if (e.target === modal) {
-            modal.classList.remove('active');
+            modal.classList.add('hidden');
         }
     });
-}
+});
+
+
+
