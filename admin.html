@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administration - Zoo Arcadia</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo-container">
+            <a href="index.html">
+                <img src="images/logo.jpg" alt="Logo Zoo Arcadia" class="logo">
+            </a>
+        </div>
+        <nav>
+            <ul class="menu">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="habitats.html">Habitats & Animaux</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Section Administration -->
+    <main>
+        <section id="admin-panel">
+            <h1>Espace Administrateur</h1>
+            <p>Bienvenue dans l'espace administrateur. Utilisez cet espace pour gérer les services du zoo.</p>
+            
+            <!-- Formulaire pour ajouter/modifier des services -->
+            <h2>Gérer les Services</h2>
+            <form id="service-form">
+                <div>
+                    <label for="service-name">Nom du Service :</label>
+                    <input type="text" id="service-name" placeholder="Nom du service" required>
+                </div>
+                <div>
+                    <label for="service-description">Description :</label>
+                    <textarea id="service-description" placeholder="Description du service" required></textarea>
+                </div>
+                <div>
+                    <label for="service-image">Image :</label>
+                    <input type="file" id="service-image" accept="image/*" required>
+                </div>
+                <button type="submit">Ajouter/Modifier</button>
+            </form>
+
+            <!-- Liste des services existants -->
+            <h2>Liste des Services</h2>
+            <ul id="service-list"></ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Zoo Arcadia. Tous droits réservés.</p>
+    </footer>
+
+    <script src="admin.js" defer></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const userRole = localStorage.getItem("userRole");
+    
+            if (userRole !== "administrateur") {
+                alert("Accès refusé : vous n'êtes pas autorisé à accéder à cette page.");
+                window.location.href = "index.html"; // Redirige vers la page d'accueil
+            }
+        });
+    </script>
+
+<button id="logout-button">Se déconnecter</button>
+
+<script>
+    document.getElementById("logout-button").addEventListener("click", () => {
+        localStorage.removeItem("userRole"); // Supprime l'état de connexion
+        alert("Vous avez été déconnecté.");
+        window.location.href = "index.html"; // Redirige vers la page d'accueil
+    });
+</script>
+
+</body>
+</html>

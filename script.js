@@ -93,6 +93,15 @@ function initLoginModal() {
             alert(`Connexion réussie en tant que ${role}`);
             loginModal.classList.remove('active');
             loginForm.reset();
+
+            if (role === "administrateur") {
+                localStorage.setItem("userRole", "administrateur");
+                window.location.href = "admin.html";
+            } else {
+                // Ferme le modal pour les autres rôles
+                loginModal.classList.remove("active");
+                loginForm.reset();
+            }
         } else {
             errorMessage.classList.remove('hidden');
         }
@@ -152,6 +161,39 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+
+    // Espace administrateur service
+
+    loginForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+    
+        const validCredentials = {
+            veterinaire: { username: "vet", password: "1234" },
+            employe: { username: "emp", password: "5678" },
+            administrateur: { username: "admin", password: "admin" }
+        };
+    
+        const role = roleInput.value;
+        const username = document.getElementById("username").value;
+        const password = document.getElementById("password").value;
+    
+        if (
+            validCredentials[role] &&
+            validCredentials[role].username === username &&
+            validCredentials[role].password === password
+        ) {
+            alert(`Connexion réussie en tant que ${role}`);
+            if (role === "administrateur") {
+                window.location.href = "admin.html"; // Rediriger vers l'espace administrateur
+            } else {
+                loginModal.classList.remove("active");
+                loginForm.reset();
+            }
+        } else {
+            errorMessage.classList.remove("hidden");
+        }
+    });
+    
 
 
 
